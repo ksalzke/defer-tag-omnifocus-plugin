@@ -50,10 +50,12 @@
       tagToDefer = formObject.values["menuItem"];
       tagDeferDate = formObject.values["dateInput"];
 
-      tagToDefer.tasks.forEach((task) => {
-        if (tagDeferDate == null || tagDeferDate > task.deferDate) {
-          task.deferDate = tagDeferDate;
-        }
+      tagToDefer.apply((tag) => {
+        tag.tasks.forEach((task) => {
+          if (tagDeferDate == null || tagDeferDate > task.deferDate) {
+            task.deferDate = tagDeferDate;
+          }
+        });
       });
     });
 

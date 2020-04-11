@@ -1,6 +1,6 @@
 # About
 
-This is an Omni Automation solitary plug-in for OmniFocus that allows the user to 'defer' all of the tasks tagged with a tag. Further details are provided below.
+This is an Omni Automation solitary plug-in for OmniFocus that allows the user to 'defer' all of the tasks associated with a tag. Further details are provided below.
 
 _Please note that Omni Automation for OmniFocus is still in development and details are subject to change before it officially ships. If you have questions, please refer to [Omni's Slack #automation channel](https://www.omnigroup.com/slack/)._
 
@@ -24,6 +24,6 @@ None so far! 🤞
 
 This action shows a form prompting the user to select a tag and enter a defer date. 
 
-Then, for each task with the selected tag, it checks the defer date and:
+Then, for each task with the selected tag or any subtags of the selected tag, it checks the defer date and:
 1. If the existing defer date is after the entered defer date, no change is made.
 2. Otherwise, the task's defer date is set to the entered date.
