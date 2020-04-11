@@ -46,9 +46,15 @@
 
     // process using form data
     formPromise.then(function (formObject) {
-      menuItem = formObject.values["menuItem"];
-      dateObject = formObject.values["dateInput"];
-      // CODE TO GO HERE
+      console.log("Processing form data block");
+      tagToDefer = formObject.values["menuItem"];
+      tagDeferDate = formObject.values["dateInput"];
+
+      tagToDefer.tasks.forEach((task) => {
+        if (tagDeferDate == null || tagDeferDate > task.deferDate) {
+          task.deferDate = tagDeferDate;
+        }
+      });
     });
 
     // promise function called when form cancelled
