@@ -69,7 +69,7 @@ function showForm() {
 function deferTasks(tag, date) {
   tag.apply((tag) => {
     tag.tasks.forEach((task) => {
-      if (date == null || date > task.deferDate) {
+      if (date > task.deferDate) {
         task.deferDate = date;
       }
     });
