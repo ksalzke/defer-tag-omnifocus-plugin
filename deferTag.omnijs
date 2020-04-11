@@ -1,0 +1,65 @@
+/*{
+	"type": "action",
+	"targets": ["omnifocus"],
+	"author": "Kaitlin Salzke",
+	"identifier": "com.KaitlinSalzke.deferTag",
+	"version": "1.0",
+	"description": "Defer all tasks with a tag",
+	"label": "Defer Tag",
+	"shortLabel": "Defer Tag"
+}*/
+(() => {
+  var action = new PlugIn.Action(function (selection, sender) {
+    var inputForm = new Form();
+
+    // create menu for form
+    popupMenu = new Form.Field.Option(
+      "menuItem",
+      "Tag To Defer",
+      flattenedTags,
+      null,
+      null
+    );
+
+    // create date for form
+    dateField = new Form.Field.Date("dateInput", "Defer Date", null);
+
+    // add fields to form
+    inputForm.addField(popupMenu);
+    inputForm.addField(dateField);
+
+    // show form
+    formPrompt = "Select a tag and a date to defer to:";
+    formPromise = inputForm.show(formPrompt, "Continue");
+
+    // validate input
+    inputForm.validate = function (formObject) {
+      // check that a tag has been selected
+      tagStatus = flattenedTags.includes(formObject.values["menuItem"]);
+
+      // check that date is in the future
+      dateObject = formObject.values["dateInput"];
+      dateStatus = dateObject && dateObject > new Date() ? true : false;
+      validation = dateStatus && tagStatus ? true : false;
+      return validation;
+    };
+
+    // process using form data
+    formPromise.then(function (formObject) {
+      menuItem = formObject.values["menuItem"];
+      dateObject = formObject.values["dateInput"];
+      // CODE TO GO HERE
+    });
+
+    // promise function called when form cancelled
+    formPromise.catch(function (err) {
+      console.log("form cancelled", err.message);
+    });
+  });
+
+  action.validate = function (selection, sender) {
+    return true;
+  };
+
+  return action;
+})();
