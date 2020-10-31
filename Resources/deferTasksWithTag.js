@@ -1,13 +1,3 @@
-/*{
-	"type": "action",
-	"targets": ["omnifocus"],
-	"author": "Kaitlin Salzke",
-	"identifier": "com.KaitlinSalzke.deferTag",
-	"version": "1.0",
-	"description": "Defer all tasks with a tag",
-	"label": "Defer Tag",
-	"shortLabel": "Defer Tag"
-}*/
 (() => {
   var action = new PlugIn.Action(function (selection, sender) {
     showForm(); // once form has been completed, deferTasks(tag, date) is called

@@ -1,0 +1,9 @@
+{
+  "defaultLocale": "en",
+  "identifier": "com.KaitlinSalzke.deferTag",
+  "author": "Kaitlin Salzke",
+  "description": "'Defer' a tag",
+  "version": "1.0.0",
+  "actions": [{ "identifier": "deferTasksWithTag" }],
+  "libraries": []
+}
