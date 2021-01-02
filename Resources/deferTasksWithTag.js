@@ -1,6 +1,6 @@
 (() => {
   var action = new PlugIn.Action(function (selection, sender) {
-    showForm(); // once form has been completed, deferTasks(tag, date) is called
+    showForm(); // once form has been completed, deferTag(tag, date) is called
   });
 
   action.validate = function (selection, sender) {
@@ -48,7 +48,7 @@ function showForm() {
 
   // process using form data
   formPromise.then(function (formObject) {
-    deferTasks(formObject.values["menuItem"], formObject.values["dateInput"]);
+    deferTag(formObject.values["menuItem"], formObject.values["dateInput"]);
   });
 
   // promise function called when form cancelled
@@ -57,12 +57,19 @@ function showForm() {
   });
 }
 
-function deferTasks(tag, date) {
-  tag.apply((tag) => {
-    tag.tasks.forEach((task) => {
-      if (date > task.deferDate) {
-        task.deferDate = date;
-      }
-    });
+function deferTag(tag, date) {
+  let scheduler = new Task(
+    `AVAILABLE @ ${date}`,
+    projectsMatching("Tag Scheduling")[0]
+  );
+  scheduler.addTag(tag);
+  scheduler.deferDate = date;
+
+  // make sure there are no notifications
+  scheduler.notifications.forEach((notification) => {
+    scheduler.removeNotification(notification);
   });
+
+  // update tag status
+  tag.status = Tag.Status.OnHold;
 }
