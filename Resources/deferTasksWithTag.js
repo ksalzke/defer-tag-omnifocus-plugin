@@ -19,7 +19,9 @@ function showForm() {
     "menuItem",
     "Tag To Defer",
     flattenedTags,
-    null,
+    flattenedTags.map((tag) => {
+      return tag.name;
+    }),
     null
   );
 
