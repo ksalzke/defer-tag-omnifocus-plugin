@@ -30,6 +30,23 @@
     });
   };
 
+  deferTagLib.checkPlace = (placeID, tag, apiKey) => {
+    let url = URL.fromString(
+      `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeID}&fields=opening_hours/open_now&key=${apiKey}`
+    );
+
+    url.fetch((data) => {
+      let json = JSON.parse(data.toString());
+      let openNow =
+        json.result.opening_hours.open_now === "true" ? true : false;
+
+      if (openNow) {
+        tag.status = Tag.Status.Active;
+      } else {
+        tag.status = Tag.Status.OnHold;
+      }
+    });
+  };
 
   return deferTagLib;
 })();

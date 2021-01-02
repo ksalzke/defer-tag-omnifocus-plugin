@@ -51,3 +51,9 @@ This plugin contains the following functions within the `deferTagLib` library:
 This function checks for any uncompleted 'scheduler' tasks with defer dates before the current time and updates relevant tag statuses accordingly (from oldest defer date to newest). It then marks these scheduler task as complete.
 
 This function can be run manually using the `Update Timed Tags` action but can also be scheduled to run at regular intervals using external tools e.g. Keyboard Maestro.
+
+## checkPlace
+
+This function, given a Google Places Place ID, tag and Google Places API Key, checks Google Maps to see if the place in question is currently open, and updates the status of the tag accordingly.
+
+It is not currently used by this plugin but has been left here so that others may make use of it should they desire.
