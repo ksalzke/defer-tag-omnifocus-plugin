@@ -4,6 +4,9 @@
   "author": "Kaitlin Salzke",
   "description": "'Defer' a tag",
   "version": "1.0.0",
-  "actions": [{ "identifier": "deferTasksWithTag" }],
-  "libraries": []
+  "actions": [
+    { "identifier": "deferTasksWithTag" },
+    { "identifier": "updateTimedTags" }
+  ],
+  "libraries": [{ "identifier": "deferTagLib" }]
 }
