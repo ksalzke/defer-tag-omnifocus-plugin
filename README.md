@@ -34,9 +34,7 @@ Suggestions:
 
 ## Defer Tasks With Tag
 
-This action shows a form prompting the user to select a tag and enter a defer date. 
-
-Then, for each task with the selected tag or any subtags of the selected tag, it creates a 'scheduler' task as described above.
+This action shows a form prompting the user to select a tag and enter a defer date. It then uses the `deferTag` function to place the tag on hold and create a 'scheduler' task for the tag as described above.
 
 ## Updated Timed Tags
 
@@ -45,6 +43,10 @@ This action runs the `updateTimedTags` function described below.
 # Functions
 
 This plugin contains the following functions within the `deferTagLib` library:
+
+## deferTag (tag, date)
+
+This function takes a tag object and a date object as input, then places the tag on hold and creates a 'scheduler' task for the tag as described above.
 
 ## updateTimedTags
 

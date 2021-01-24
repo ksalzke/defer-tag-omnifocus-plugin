@@ -1,5 +1,6 @@
 (() => {
   var action = new PlugIn.Action(function (selection, sender) {
+    lib = this.deferTagLib;
     showForm(); // once form has been completed, deferTag(tag, date) is called
   });
 
@@ -50,28 +51,11 @@ function showForm() {
 
   // process using form data
   formPromise.then(function (formObject) {
-    deferTag(formObject.values["menuItem"], formObject.values["dateInput"]);
+    lib.deferTag(formObject.values["menuItem"], formObject.values["dateInput"]);
   });
 
   // promise function called when form cancelled
   formPromise.catch(function (err) {
     console.log("form cancelled", err.message);
   });
-}
-
-function deferTag(tag, date) {
-  let scheduler = new Task(
-    `AVAILABLE @ ${date}`,
-    projectsMatching("Tag Scheduling")[0]
-  );
-  scheduler.addTag(tag);
-  scheduler.deferDate = date;
-
-  // make sure there are no notifications
-  scheduler.notifications.forEach((notification) => {
-    scheduler.removeNotification(notification);
-  });
-
-  // update tag status
-  tag.status = Tag.Status.OnHold;
 }

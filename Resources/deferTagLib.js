@@ -1,6 +1,24 @@
 (() => {
   let deferTagLib = new PlugIn.Library(new Version("1.0"));
 
+  deferTagLib.deferTag = (tag, date) => {
+    console.log("in deferTag function");
+    let scheduler = new Task(
+      `AVAILABLE @ ${date}`,
+      projectsMatching("Tag Scheduling")[0]
+    );
+    scheduler.addTag(tag);
+    scheduler.deferDate = date;
+
+    // make sure there are no notifications
+    scheduler.notifications.forEach((notification) => {
+      scheduler.removeNotification(notification);
+    });
+
+    // update tag status
+    tag.status = Tag.Status.OnHold;
+  };
+
   deferTagLib.updateTimedTags = () => {
     cleanUp();
 
