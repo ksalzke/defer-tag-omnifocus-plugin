@@ -5,31 +5,31 @@
     const inputForm = new Form()
 
     // create menu for form
-    const popupMenu = new Form.Field.Option(
+    const popupMenu = new Form.Field.MultipleOptions(
       'menuItem',
-      'Tag To Defer',
+      'Tag(s) To Defer',
       flattenedTags,
       flattenedTags.map((tag) => {
         return tag.name
       }),
-      null
+      selection.tags
     )
 
     // create date for form
     const dateField = new Form.Field.Date('dateInput', 'Defer Date', null)
 
     // add fields to form
-    inputForm.addField(popupMenu)
     inputForm.addField(dateField)
+    inputForm.addField(popupMenu)
 
     // show form
-    const formPrompt = 'Select a tag and a date to defer to:'
+    const formPrompt = 'Select tag(s) and a date to defer to:'
     const formPromise = inputForm.show(formPrompt, 'Continue')
 
     // validate input
     inputForm.validate = function (formObject) {
       // check that a tag has been selected
-      const tagStatus = flattenedTags.includes(formObject.values.menuItem)
+      const tagStatus = formObject.values.menuItem.length > 0
 
       // check that date is in the future
       const dateObject = formObject.values.dateInput
@@ -39,7 +39,9 @@
     }
     // process using form data
     formPromise.then(function (formObject) {
-      lib.deferTag(formObject.values.menuItem, formObject.values.dateInput)
+      formObject.values.menuItem.forEach(tag => {
+        lib.deferTag(tag, formObject.values.dateInput)
+      })
     })
 
     // promise function called when form cancelled
