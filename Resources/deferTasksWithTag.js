@@ -4,6 +4,12 @@
     const lib = this.deferTagLib
     const inputForm = new Form()
 
+    // set up tags selected by default
+    let selectedTags = []
+    if (selection.tags && selection.tags.length > 0) {
+      // use selected tags if any
+      selectedTags = selection.tags
+    }
     // create menu for form
     const popupMenu = new Form.Field.MultipleOptions(
       'menuItem',
@@ -12,7 +18,7 @@
       flattenedTags.map((tag) => {
         return tag.name
       }),
-      selection.tags
+      selectedTags
     )
 
     // create date for form
