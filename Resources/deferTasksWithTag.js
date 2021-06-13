@@ -9,19 +9,13 @@
       return tagsToFront.concat(removed)
     }
 
-    // set up tags selected by default
-    let selectedTags = []
-    if (selection.tags.length > 0) {
-      // use selected tags if any
-      selectedTags = selection.tags
-    }
-
     // Bring tags of first selected task if any to the top of the list
     const selectedTaskTags = selection.tasks.length > 0 ? selection.tasks[0].tags.flat() : []
-    const reordered = bringToFront(selectedTaskTags, flattenedTags)
+    let reordered = bringToFront(selectedTaskTags, flattenedTags)
 
-    // Bring any already-selected tasks to top of list
-    
+    // Bring any already-selected tasks to top of list and select them
+    const selectedTags = selection.tags.length > 0 ? selection.tags.flat() : []
+    reordered = bringToFront(selectedTags, reordered)
 
     // create menu for form
     const popupMenu = new Form.Field.MultipleOptions(
