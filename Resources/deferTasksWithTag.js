@@ -4,6 +4,11 @@
     const lib = this.deferTagLib
     const inputForm = new Form()
 
+    function bringToFront (tagsToFront, currentArray) {
+      const removed = currentArray.filter(tag => !tagsToFront.includes(tag))
+      return tagsToFront.concat(removed)
+    }
+
     // set up tags selected by default
     let selectedTags = []
     if (selection.tags.length > 0) {
@@ -13,8 +18,10 @@
 
     // Bring tags of first selected task if any to the top of the list
     const selectedTaskTags = selection.tasks.length > 0 ? selection.tasks[0].tags.flat() : []
-    const removed = flattenedTags.filter(tag => !selectedTaskTags.includes(tag))
-    const reordered = selectedTaskTags.concat(removed)
+    const reordered = bringToFront(selectedTaskTags, flattenedTags)
+
+    // Bring any already-selected tasks to top of list
+    
 
     // create menu for form
     const popupMenu = new Form.Field.MultipleOptions(
