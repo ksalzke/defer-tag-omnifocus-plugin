@@ -4,15 +4,28 @@
     const lib = this.deferTagLib
     const inputForm = new Form()
 
+    function bringToFront (tagsToFront, currentArray) {
+      const removed = currentArray.filter(tag => !tagsToFront.includes(tag))
+      return tagsToFront.concat(removed)
+    }
+
+    // Bring tags of first selected task if any to the top of the list
+    const selectedTaskTags = selection.tasks.length > 0 ? selection.tasks[0].tags.flat() : []
+    let reordered = bringToFront(selectedTaskTags, flattenedTags)
+
+    // Bring any already-selected tasks to top of list and select them
+    const selectedTags = selection.tags.length > 0 ? selection.tags.flat() : []
+    reordered = bringToFront(selectedTags, reordered)
+
     // create menu for form
     const popupMenu = new Form.Field.MultipleOptions(
       'menuItem',
       'Tag(s) To Defer',
-      flattenedTags,
-      flattenedTags.map((tag) => {
+      reordered,
+      reordered.map((tag) => {
         return tag.name
       }),
-      selection.tags
+      selectedTags
     )
 
     // create date for form
