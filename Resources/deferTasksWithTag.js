@@ -6,16 +6,22 @@
 
     // set up tags selected by default
     let selectedTags = []
-    if (selection.tags && selection.tags.length > 0) {
+    if (selection.tags.length > 0) {
       // use selected tags if any
       selectedTags = selection.tags
     }
+
+    // Bring tags of first selected task if any to the top of the list
+    const selectedTaskTags = selection.tasks.length > 0 ? selection.tasks[0].tags.flat() : []
+    const removed = flattenedTags.filter(tag => !selectedTaskTags.includes(tag))
+    const reordered = selectedTaskTags.concat(removed)
+
     // create menu for form
     const popupMenu = new Form.Field.MultipleOptions(
       'menuItem',
       'Tag(s) To Defer',
-      flattenedTags,
-      flattenedTags.map((tag) => {
+      reordered,
+      reordered.map((tag) => {
         return tag.name
       }),
       selectedTags
