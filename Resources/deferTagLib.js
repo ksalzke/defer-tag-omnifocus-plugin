@@ -1,6 +1,17 @@
-/* global PlugIn Version Task projectsMatching Tag cleanUp */
+/* global PlugIn Version Task projectsMatching Tag cleanUp flattenedProjects Project */
 (() => {
   const deferTagLib = new PlugIn.Library(new Version('1.0'))
+
+  deferTagLib.getTaggedProjects = (tag) => {
+    // check for any projects that should be updated with this tag
+    const projectsToUpdate = []
+    flattenedProjects.forEach(project => {
+      if (project.note.includes(`$DEFERWITHTAG=${tag.name}`)) {
+        projectsToUpdate.push(project)
+      }
+    })
+    return projectsToUpdate
+  }
 
   deferTagLib.deferTag = (tag, date) => {
     const scheduler = new Task(
@@ -17,6 +28,11 @@
 
     // update tag status
     tag.status = Tag.Status.OnHold
+
+    // update any linked projects
+    const projectsToUpdate = deferTagLib.getTaggedProjects(tag)
+    console.log(projectsToUpdate)
+    projectsToUpdate.forEach(project => (project.status = Project.Status.OnHold))
   }
 
   deferTagLib.updateTimedTags = () => {
@@ -35,12 +51,21 @@
 
     // for each scheduler task...
     schedulers.forEach((scheduler) => {
-      // make tag active or on hold as required
       const tag = scheduler.tags[0]
+
+      const projectsToUpdate = deferTagLib.getTaggedProjects(tag)
+
+      // make tag active or on hold as required
       if (scheduler.name.startsWith('AVAILABLE')) {
         tag.status = Tag.Status.Active
+        projectsToUpdate.forEach(project => {
+          project.status = Project.Status.Active
+        })
       } else if (scheduler.name.startsWith('DEFERRED')) {
         tag.status = Tag.Status.OnHold
+        projectsToUpdate.forEach(project => {
+          project.status = Project.Status.OnHold
+        })
       }
 
       // and then mark complete
