@@ -51,6 +51,8 @@ This plugin contains the following functions within the `deferTagLib` library:
 
 This function takes a tag object and a date object as input, then places the tag on hold and creates a 'scheduler' task for the tag as described above.
 
+Child tags will also be deferred.
+
 ## updateTimedTags
 
 This function checks for any uncompleted 'scheduler' tasks with defer dates before the current time and updates relevant tag statuses accordingly (from oldest defer date to newest). It then marks these scheduler task as complete.

@@ -17,6 +17,11 @@
 
     // update tag status
     tag.status = Tag.Status.OnHold
+
+    // defer any child tags
+    if (tag.children.length > 0) {
+      tag.children.forEach(tag => deferTagLib.deferTag(tag, date))
+    }
   }
 
   deferTagLib.updateTimedTags = () => {
