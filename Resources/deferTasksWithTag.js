@@ -11,9 +11,11 @@
 
     // Bring tags of first selected task if any to the top of the list
     const selectedTaskTags = selection.tasks.length > 0 ? selection.tasks[0].tags.flat() : []
-    let reordered = bringToFront(selectedTaskTags, flattenedTags)
+    const selectedTaskTagsWithParents = selectedTaskTags.map(includedTag => flattenedTags.filter(tag => tag === includedTag || tag.flattenedTags.includes(includedTag))).flat()
+    const firstWithoutDuplicates = [...new Set(selectedTaskTagsWithParents)]
+    let reordered = bringToFront(firstWithoutDuplicates, flattenedTags)
 
-    // Bring any already-selected tasks to top of list and select them
+    // Bring any already-selected tags to top of list and select them
     const selectedTags = selection.tags.length > 0 ? selection.tags.flat() : []
     reordered = bringToFront(selectedTags, reordered)
 
