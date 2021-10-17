@@ -5,8 +5,8 @@
   "description": "'Defer' a tag",
   "version": "2.3",
   "actions": [
-    { "identifier": "deferTasksWithTag" },
-    { "identifier": "updateTimedTags" }
+    { "identifier": "deferTasksWithTag", "image":  "tag.slash"},
+    { "identifier": "updateTimedTags", "image": "clock.arrow.2.circlepath" }
   ],
   "libraries": [{ "identifier": "deferTagLib" }]
 }
