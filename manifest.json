@@ -3,10 +3,20 @@
   "identifier": "com.KaitlinSalzke.deferTag",
   "author": "Kaitlin Salzke",
   "description": "'Defer' a tag",
-  "version": "2.3",
+  "version": "2.4.0",
   "actions": [
-    { "identifier": "deferTasksWithTag", "image":  "tag.slash"},
-    { "identifier": "updateTimedTags", "image": "clock.arrow.2.circlepath" }
+    {
+      "identifier": "deferTasksWithTag",
+      "image": "tag.slash"
+    },
+    {
+      "identifier": "updateTimedTags",
+      "image": "clock.arrow.2.circlepath"
+    }
   ],
-  "libraries": [{ "identifier": "deferTagLib" }]
+  "libraries": [
+    {
+      "identifier": "deferTagLib"
+    }
+  ]
 }
