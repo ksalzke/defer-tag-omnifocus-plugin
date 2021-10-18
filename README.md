@@ -6,15 +6,14 @@ _Please note that all scripts on my GitHub account (or shared elsewhere) are wor
 
 ## Known issues
 
-None so far! 🤞
+Refer to the 'issues' in this repo for known issues and planned changes/enhancements.
 
 # Installation & Set-Up
 
-(For instructions on getting started with Omni Automation, see [here](https://kaitlinsalzke.com/how-to/how-to-add-a-omnijs-plug-in-to-omnifocus-and-assign-a-keyboard-shortcut/).)
-
-1. Click on the green `Clone or download` button above to download a `.zip` file of the file in this GitHub repository.
+1. Click on the green `Clone or download` button above to download a `.zip` file of all the files in this GitHub repository.
 2. Unzip the downloaded file.
-3. Move the `.omnijs` file to your OmniFocus plug-in library folder.
+3. Rename the entire folder to anything you like, with the extension `.omnifocusjs`
+4. Move the resulting file to your OmniFocus plug-in library folder.
 
 ## 'Scheduler' Tasks
 
