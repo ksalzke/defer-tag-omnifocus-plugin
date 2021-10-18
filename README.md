@@ -43,6 +43,14 @@ If one or more tasks are selected in OmniFocus before the action is run, the tag
 
 This action runs the `updateTimedTags` function described below.
 
+## Show Scheduler Project
+
+This action navigates to the project used to store the data, and makes its containing folder active so that the information is visible. This action is only available when no projects or tasks are selected (so that it is not shown on the share sheet on iOS)
+
+## Hide Scheduler Project
+
+This action sets the status of the 'Tag Scheduling' folder to dropped, so that it is not visible. This action is only available when the folder has an active status (i.e. its status is not set to dropped.)
+
 # Functions
 
 This plugin contains the following functions within the `deferTagLib` library:
@@ -58,6 +66,12 @@ Child tags will also be deferred.
 This function checks for any uncompleted 'scheduler' tasks with defer dates before the current time and updates relevant tag statuses accordingly (from oldest defer date to newest). It then marks these scheduler task as complete.
 
 This function can be run manually using the `Update Timed Tags` action but can also be scheduled to run at regular intervals using external tools e.g. Keyboard Maestro.
+
+## getProj
+
+This function creates the folder and project used to store the 'scheduler' tasks, if they do not already exist.
+
+It then returns the project object.
 
 ## checkPlace
 
