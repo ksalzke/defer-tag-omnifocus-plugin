@@ -1,11 +1,11 @@
-/* global PlugIn Version Task projectsMatching Tag cleanUp */
+/* global PlugIn Version Task Tag cleanUp folderNamed Folder Project */
 (() => {
   const deferTagLib = new PlugIn.Library(new Version('1.0'))
 
   deferTagLib.deferTag = (tag, date) => {
     const scheduler = new Task(
       `AVAILABLE @ ${date}`,
-      projectsMatching('Tag Scheduling')[0]
+      deferTagLib.getProj()
     )
     scheduler.addTag(tag)
     scheduler.deferDate = date
@@ -30,7 +30,7 @@
     const now = new Date()
 
     // get all uncompleted scheduler tasks whose defer date has passed
-    const schedulers = projectsMatching('Tag Scheduling')[0].tasks.filter(
+    const schedulers = deferTagLib.getProj().tasks.filter(
       (task) =>
         task.deferDate < now && task.taskStatus !== Task.Status.Completed
     )
@@ -51,6 +51,24 @@
       // and then mark complete
       scheduler.markComplete()
     })
+  }
+
+  deferTagLib.getProj = () => {
+    const name = '🏷 Tag Scheduling'
+
+    const createFolder = () => {
+      const created = new Folder(name)
+      created.active = false
+      return created
+    }
+    const folder = folderNamed(name) || createFolder()
+
+    const project = folder.projectNamed(name) || new Project(name, folder)
+
+    // make SAL
+    project.containsSingletonActions = true
+
+    return project
   }
 
   deferTagLib.checkPlace = (placeID, tag, apiKey) => {

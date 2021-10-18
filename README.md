@@ -15,11 +15,12 @@ Refer to the 'issues' in this repo for known issues and planned changes/enhancem
 3. Rename the entire folder to anything you like, with the extension `.omnifocusjs`
 4. Move the resulting file to your OmniFocus plug-in library folder.
 
-## 'Scheduler' Tasks
+## '🏷 Tag Scheduling' Storage and 'Scheduler' Tasks
 
-For the purposes of this plugin, a scheduled tag status change is represented by a 'scheduler' task with the following attributes:
+This plugin uses a project inside a dropped folder named (both named `🏷 Tag Scheduling`) to store any preferences, which is then synced using the regular OmniFocus sync method (like any other projects and tasks in the database would be). This is created automatically by the plugin when it is needed.
+
+For the purposes of this plugin, a scheduled tag status change is represented by a 'scheduler' task inside this project with the following attributes:
 * Name starts with `AVAILABLE` or `DEFERRED`. (What follows is ignored by the script; I suggest using something meaningful to you e.g. `AVAILABLE from Saturday 1pm`).
-* Project is the first match for `Tag Scheduling` in the database.
 * Tag is the tag to be scheduled.
 * Defer date is the time that the tag should become available or be placed on hold.
 
@@ -35,12 +36,20 @@ Suggestions:
 
 This action shows a form prompting the user to select one or more tags and enter a defer date. It then uses the `deferTag` function to place the tags on hold and create a 'scheduler' task for the tag as described above.
 
-If one or more tags are selected in OmniFocus before the action is run, these tags are automatically selected by default and shown at the top of the list.
-If one or more tasks are selected in OmniFocus before the action is run, the tags attached to the first selected task will be shown at the top of the list.
+If one or more tags are selected in OmniFocus before the action is run, these tags are automatically selected by default and shown, with any parent tags, at the top of the list.
+If one or more tasks are selected in OmniFocus before the action is run, the tags attached to the first selected task will be shown, with any parent tags, at the top of the list.
 
 ## Updated Timed Tags
 
 This action runs the `updateTimedTags` function described below.
+
+## Show Scheduler Project
+
+This action navigates to the project used to store the data, and makes its containing folder active so that the information is visible. This action is only available when no projects or tasks are selected (so that it is not shown on the share sheet on iOS)
+
+## Hide Scheduler Project
+
+This action sets the status of the 'Tag Scheduling' folder to dropped, so that it is not visible. This action is only available when the folder has an active status (i.e. its status is not set to dropped.)
 
 # Functions
 
@@ -57,6 +66,12 @@ Child tags will also be deferred.
 This function checks for any uncompleted 'scheduler' tasks with defer dates before the current time and updates relevant tag statuses accordingly (from oldest defer date to newest). It then marks these scheduler task as complete.
 
 This function can be run manually using the `Update Timed Tags` action but can also be scheduled to run at regular intervals using external tools e.g. Keyboard Maestro.
+
+## getProj
+
+This function creates the folder and project used to store the 'scheduler' tasks, if they do not already exist.
+
+It then returns the project object.
 
 ## checkPlace
 

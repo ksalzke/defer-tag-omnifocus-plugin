@@ -12,6 +12,14 @@
     {
       "identifier": "updateTimedTags",
       "image": "clock.arrow.2.circlepath"
+    },
+    {
+      "identifier": "goToSchedulerProject",
+      "image": "cursorarrow.click.badge.clock"
+    },
+    {
+      "identifier": "hideSchedulerProject",
+      "image": "eye.slash"
     }
   ],
   "libraries": [
