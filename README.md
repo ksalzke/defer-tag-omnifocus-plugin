@@ -36,7 +36,8 @@ Suggestions:
 
 This action shows a form prompting the user to select one or more tags and enter a defer date. It then uses the `deferTag` function to place the tags on hold and create a 'scheduler' task for the tag as described above.
 
-If one or more tags are selected in OmniFocus before the action is run, these tags are automatically selected by default and shown, with any parent tags, at the top of the list.
+If one or more tags are selected in OmniFocus before the action is run, these tags are automatically selected by default and shown at the top of the list.
+
 If one or more tasks are selected in OmniFocus before the action is run, the tags attached to the first selected task will be shown, with any parent tags, at the top of the list.
 
 ## Updated Timed Tags
