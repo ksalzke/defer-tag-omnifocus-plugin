@@ -27,7 +27,7 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          version-file: DeferTag.omnifocus/manifest.json
+          version-file: DeferTag.omnifocusjs/manifest.json
           release-count: 0
           
       - name: Release
