@@ -6,14 +6,13 @@ _Please note that all scripts on my GitHub account (or shared elsewhere) are wor
 
 ## Known issues
 
-Refer to the 'issues' in this repo for known issues and planned changes/enhancements.
+Refer to ['issues'](https://github.com/ksalzke/defer-tag-omnifocus-plugin/issues) for known issues and planned changes/enhancements.
 
 # Installation & Set-Up
 
-1. Click on the green `Clone or download` button above to download a `.zip` file of all the files in this GitHub repository.
+1. Download the [latest release](https://github.com/ksalzke/synced-preferences-for-omnifocus/releases/latest).
 2. Unzip the downloaded file.
-3. Rename the entire folder to anything you like, with the extension `.omnifocusjs`
-4. Move the resulting file to your OmniFocus plug-in library folder.
+3. Move the `.omnifocusjs` file to your OmniFocus plug-in library folder (or open it to install).
 
 ## '🏷 Tag Scheduling' Storage and 'Scheduler' Tasks
 
