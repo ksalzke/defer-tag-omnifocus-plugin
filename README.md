@@ -42,11 +42,11 @@ For the purposes of this plugin, a scheduled tag status change is represented by
 
 There are two ways to set a schedule for a tag:
 
-1. **Use the 'Defer Tasks With Tag' action**
+### 1. Use the 'Defer Tasks With Tag' action
 
 This action is detailed further below.
 
-2. **Create 'Scheduler' tasks manually**
+### 2. Create 'Scheduler' tasks manually
 
 This method is recommended for more complicated instances e.g. store opening hours which repeat on a weekly basis.
 
