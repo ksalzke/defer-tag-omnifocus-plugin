@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>652265299.01327801</real>
+		<key>DisabledMacs</key>
+		<array>
+			<string>E9577F3B-EE8F-4200-8C54-69105306E3A4</string>
+		</array>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>62</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "OmniFocus"
+	evaluate javascript "PlugIn.find('com.KaitlinSalzke.deferTag').action('updateTimedTags').perform()"
+end tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>634974966.16563106</real>
+				<key>ModificationDate</key>
+				<real>634975502.58546805</real>
+				<key>Name</key>
+				<string>Run OF Plugin: Update Tag Status</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>ExecuteType</key>
+						<string>While</string>
+						<key>MacroTriggerType</key>
+						<string>Time</string>
+						<key>Repeat</key>
+						<true/>
+						<key>RepeatTime</key>
+						<integer>600</integer>
+						<key>TimeFinishHour</key>
+						<integer>23</integer>
+						<key>TimeFinishMinutes</key>
+						<integer>59</integer>
+						<key>TimeHour</key>
+						<integer>0</integer>
+						<key>TimeMinutes</key>
+						<integer>0</integer>
+						<key>WhichDays</key>
+						<integer>127</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>6032EA0F-453C-4C60-8246-5F60DDCE76BB</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Background (OmniFocus)</string>
+		<key>ToggleMacroUID</key>
+		<string>9DAEF588-BAE9-4726-8A83-D2A3241A432A</string>
+		<key>UID</key>
+		<string>59CE63A0-8F16-43CE-886E-EB794417D318</string>
+	</dict>
+</array>
+</plist>

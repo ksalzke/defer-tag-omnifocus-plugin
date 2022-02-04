@@ -13,6 +13,7 @@ Refer to ['issues'](https://github.com/ksalzke/defer-tag-omnifocus-plugin/issues
 1. Download the [latest release](https://github.com/ksalzke/synced-preferences-for-omnifocus/releases/latest).
 2. Unzip the downloaded file.
 3. Move the `.omnifocusjs` file to your OmniFocus plug-in library folder (or open it to install).
+4. Open the 'Run OF Plugin - Update Tag Status' Keyboard Maestro macro file and install it in Keyboard Maestro.
 
 ## '🏷 Tag Scheduling' Storage and 'Scheduler' Tasks
 
