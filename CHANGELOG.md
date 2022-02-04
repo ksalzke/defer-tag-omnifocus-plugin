@@ -1,3 +1,13 @@
+# [3.1.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.0.0...v3.1.0) (2021-11-19)
+
+
+### Features
+
+* fix version path for ci and force update ([4c41097](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/4c4109773a1fc63f06ba009e20e381f51eade6e8))
+* restructure to improve ease of installation ([4d69297](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/4d69297279b3f9cc508f57ae09da588f5745be70))
+
+
+
 # [3.0.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v2.4.0...v3.0.0) (2021-10-18)
 
 
