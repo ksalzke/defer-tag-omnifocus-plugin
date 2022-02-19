@@ -3,7 +3,7 @@
   "identifier": "com.KaitlinSalzke.deferTag",
   "author": "Kaitlin Salzke",
   "description": "'Defer' a tag",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "actions": [
     {
       "identifier": "deferTasksWithTag",

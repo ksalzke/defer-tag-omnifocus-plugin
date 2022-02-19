@@ -1,3 +1,12 @@
+# [3.2.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.1.0...v3.2.0) (2022-02-04)
+
+
+### Features
+
+* :sparkles: add Keyboard Maestro macro to repo and instructions to README ([be84189](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/be841894830961afaeee3ce4f9c288ed58ca1631))
+
+
+
 # [3.1.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.0.0...v3.1.0) (2021-11-19)
 
 
