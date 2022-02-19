@@ -1,3 +1,12 @@
+# [3.3.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.2.0...v3.3.0) (2022-02-19)
+
+
+### Features
+
+* :sparkles: update validation so actions always available ([79112e5](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/79112e5e3d817645f3f4a2178bf5063b4f30e132))
+
+
+
 # [3.2.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.1.0...v3.2.0) (2022-02-04)
 
 
