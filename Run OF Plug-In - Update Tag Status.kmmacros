@@ -48,7 +48,7 @@ end tell</string>
 				<key>ModificationDate</key>
 				<real>634975502.58546805</real>
 				<key>Name</key>
-				<string>Run OF Plugin: Update Tag Status</string>
+				<string>Run OF Plug-In: Update Tag Status</string>
 				<key>Triggers</key>
 				<array>
 					<dict>

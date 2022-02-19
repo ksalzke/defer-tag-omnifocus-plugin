@@ -23,15 +23,15 @@ Refer to ['issues'](https://github.com/ksalzke/defer-tag-omnifocus-plugin/issues
 1. Download the [latest release](https://github.com/ksalzke/synced-preferences-for-omnifocus/releases/latest).
 2. Unzip the downloaded file.
 3. Move the `.omnifocusjs` file to your OmniFocus plug-in library folder (or open it to install).
-4. Open the 'Run OF Plugin - Update Tag Status' Keyboard Maestro macro file and install it in Keyboard Maestro.
+4. Open the 'Run OF Plug-in - Update Tag Status' Keyboard Maestro macro file and install it in Keyboard Maestro.
 
 # Usage
 
 ## '🏷 Tag Scheduling' Storage and 'Scheduler' Tasks
 
-This plugin uses a project inside a dropped folder named (both named `🏷 Tag Scheduling`) to store its data, which is then synced using the regular OmniFocus sync method (like any other projects and tasks in the database would be). This is created automatically by the plugin when it is needed.
+This plug-in uses a project inside a dropped folder named (both named `🏷 Tag Scheduling`) to store its data, which is then synced using the regular OmniFocus sync method (like any other projects and tasks in the database would be). This is created automatically by the plug-in when it is needed.
 
-For the purposes of this plugin, a scheduled tag status change is represented by a 'scheduler' task inside this project with the following attributes:
+For the purposes of this plug-in, a scheduled tag status change is represented by a 'scheduler' task inside this project with the following attributes:
 
 * Name starts with `AVAILABLE` or `DEFERRED`. (What follows is ignored by the script; I suggest using something meaningful to you e.g. `AVAILABLE from Saturday 1pm`).
 
@@ -51,7 +51,7 @@ This action is detailed further below.
 
 This method is recommended for more complicated instances e.g. store opening hours which repeat on a weekly basis.
 
-By creating tasks that meet the criteria described [above](https://github.com/ksalzke/defer-tag-omnifocus-plugin#-tag-scheduling-storage-and-scheduler-tasks) in the necessary project, you can create more complex tag scheduling. To assist with this, the plugin includes a 'Show Scheduler Project' action to quickly navigate to the project, and a 'Hide Scheduler Project' action to hide it again once you have finished any edits.
+By creating tasks that meet the criteria described [above](https://github.com/ksalzke/defer-tag-omnifocus-plugin#-tag-scheduling-storage-and-scheduler-tasks) in the necessary project, you can create more complex tag scheduling. To assist with this, the plug-in includes a 'Show Scheduler Project' action to quickly navigate to the project, and a 'Hide Scheduler Project' action to hide it again once you have finished any edits.
 
 Suggestions:
 
@@ -105,7 +105,7 @@ This action sets the status of the 'Tag Scheduling' folder to dropped, so that i
 
 # Functions
 
-This plugin contains the following functions within the `deferTagLib` library:
+This plug-in contains the following functions within the `deferTagLib` library:
 
 ## deferTag (tag, date)
 
@@ -129,4 +129,4 @@ It then returns the project object.
 
 This function, given a Google Places Place ID, tag and Google Places API Key, checks Google Maps to see if the place in question is currently open, and updates the status of the tag accordingly.
 
-It is not currently used by this plugin but has been left here so that others may make use of it should they desire.
+It is not currently used by this plug-in but has been left here so that others may make use of it should they desire.
