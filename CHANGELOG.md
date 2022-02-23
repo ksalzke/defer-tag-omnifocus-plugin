@@ -1,3 +1,12 @@
+## [3.3.1](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.3.0...v3.3.1) (2022-02-23)
+
+
+### Bug Fixes
+
+* :bug: fix bug where error would occur if a previously-scheduled tag had been deleted ([4df0ad8](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/4df0ad858d98afb16d6291c6919bac84b51908c1))
+
+
+
 # [3.3.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.2.0...v3.3.0) (2022-02-19)
 
 
