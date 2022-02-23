@@ -29,17 +29,18 @@
 
     const now = new Date()
 
+    // delete any uncompleted scheduler tasks that don't have a tag
+    const tasksWithDeletedTags = deferTagLib.getProj().tasks.filter(task => task.tags.length === 0)
+    for (const task of tasksWithDeletedTags) deleteObject(task)
+
     // get all uncompleted scheduler tasks whose defer date has passed
-    const schedulers = deferTagLib.getProj().tasks.filter(
-      (task) =>
-        task.deferDate < now && task.taskStatus !== Task.Status.Completed
-    )
+    const incompleteSchedulers = deferTagLib.getProj().tasks.filter(task => task.deferDate < now && task.taskStatus !== Task.Status.Completed)
 
     // sort scheduler tasks - earliest defer date first
-    schedulers.sort((a, b) => (a.deferDate < b.deferDate ? -1 : 1))
+    incompleteSchedulers.sort((a, b) => (a.deferDate < b.deferDate ? -1 : 1))
 
     // for each scheduler task...
-    schedulers.forEach((scheduler) => {
+    incompleteSchedulers.forEach((scheduler) => {
       // make tag active or on hold as required
       const tag = scheduler.tags[0]
       if (scheduler.name.startsWith('AVAILABLE')) {
