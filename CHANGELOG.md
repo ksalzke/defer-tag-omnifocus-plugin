@@ -1,3 +1,12 @@
+# [3.4.0](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.3.1...v3.4.0) (2022-02-27)
+
+
+### Features
+
+* :lipstick: improve 'go to scheduler project' action display ([43cebeb](https://github.com/ksalzke/defer-tag-omnifocus-plugin/commit/43cebeb296a46e1b34aeb0dd6c28c4dfe5425001))
+
+
+
 ## [3.3.1](https://github.com/ksalzke/defer-tag-omnifocus-plugin/compare/v3.3.0...v3.3.1) (2022-02-23)
 
 
