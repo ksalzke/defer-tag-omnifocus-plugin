@@ -18,12 +18,13 @@ _Please note that all scripts on my GitHub account (or shared elsewhere) are wor
 
 Refer to ['issues'](https://github.com/ksalzke/defer-tag-omnifocus-plugin/issues) for known issues and planned changes/enhancements.
 
-# Installation & Set-Up
+## Installation
 
-1. Download the [latest release](https://github.com/ksalzke/defer-tag-omnifocus-plugin/releases/latest).
-2. Unzip the downloaded file.
-3. Move the `.omnifocusjs` file to your OmniFocus plug-in library folder (or open it to install).
-4. Open the 'Run OF Plug-in - Update Tag Status' Keyboard Maestro macro file and install it in Keyboard Maestro.
+[![Install in OmniFocus](https://img.shields.io/badge/OmniFocus-Install-5E5CE6?style=flat-square)](https://ksalzke.github.io/omnifocus-plugin-installer/?repo=defer-tag-omnifocus-plugin)
+
+1. Select **Install** above, then follow the prompts.
+
+2. Open the 'Run OF Plug-in - Update Tag Status' Keyboard Maestro macro file and install it in Keyboard Maestro.
 
 # Usage
 
